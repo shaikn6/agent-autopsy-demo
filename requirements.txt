@@ -1,0 +1,5 @@
+gradio==5.9.1
+networkx>=3.3
+matplotlib>=3.8
+fastembed>=0.3  # CPU sentence embeddings (ONNX, no torch) for the GOAL_DRIFT detector
+huggingface_hub>=0.25  # optional explain-only LLM layer via HF Inference API (uses HF_TOKEN if set; no torch)

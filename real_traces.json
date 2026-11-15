@@ -1,0 +1,238 @@
+[
+ {
+  "id": "population-sum",
+  "task": "What is the combined population of Paris and Rome?",
+  "name": "qwen2.5-1.5b-agent: population-sum",
+  "steps": [
+   {
+    "type": "DECISION",
+    "description": "Goal: What is the combined population of Paris and Rome?"
+   },
+   {
+    "type": "LLM_CALL",
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "prompt": "[system] You are an assistant that can use tools. Reply with ONE JSON object and nothing else.\nTo call a tool: {\"action\":\"tool\",\"tool\":\"<name>\",\"args\":{...}}\nTo finish: {\"action\":\"final\",\"answer\":\"<answer>\"}\nTools:\n- lookup(city): population of a city. args {\"city\": \"<name>\"}\n- calc(expression): evaluate arithmetic. args {\"expression\": \"<expr>\"}\n- orders_api(order_id): status of an order. args {\"order_id\": \"<id>\"}\n\n[user] What is the combined population of Paris and Rome?",
+    "response": "{\"action\":\"tool\",\"tool\":\"lookup\",\"args\":{\"city\":\"Paris\"}}",
+    "latency_ms": 2533,
+    "tokens": 146,
+    "context_window": 32768
+   },
+   {
+    "type": "TOOL_CALL",
+    "tool_name": "lookup",
+    "args": {
+     "city": "Paris"
+    },
+    "result": "Paris population: 2102650",
+    "latency_ms": 0
+   },
+   {
+    "type": "LLM_CALL",
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "prompt": "[system] You are an assistant that can use tools. Reply with ONE JSON object and nothing else.\nTo call a tool: {\"action\":\"tool\",\"tool\":\"<name>\",\"args\":{...}}\nTo finish: {\"action\":\"final\",\"answer\":\"<answer>\"}\nTools:\n- lookup(city): population of a city. args {\"city\": \"<name>\"}\n- calc(expression): evaluate arithmetic. args {\"expression\": \"<expr>\"}\n- orders_api(order_id): status of an order. args {\"order_id\": \"<id>\"}\n\n[user] What is the combined population of Paris and Rome?\n[assistant] {\"action\":\"tool\",\"tool\":\"lookup\",\"args\":{\"city\":\"Paris\"}}\n[user] Tool result: Paris population: 2102650",
+    "response": "{\"action\":\"tool\",\"tool\":\"lookup\",\"args\":{\"city\":\"Rome\"}}",
+    "latency_ms": 544,
+    "tokens": 186,
+    "context_window": 32768
+   },
+   {
+    "type": "TOOL_CALL",
+    "tool_name": "lookup",
+    "args": {
+     "city": "Rome"
+    },
+    "result": "Rome population: 2748109",
+    "latency_ms": 0
+   },
+   {
+    "type": "LLM_CALL",
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "prompt": "[system] You are an assistant that can use tools. Reply with ONE JSON object and nothing else.\nTo call a tool: {\"action\":\"tool\",\"tool\":\"<name>\",\"args\":{...}}\nTo finish: {\"action\":\"final\",\"answer\":\"<answer>\"}\nTools:\n- lookup(city): population of a city. args {\"city\": \"<name>\"}\n- calc(expression): evaluate arithmetic. args {\"expression\": \"<expr>\"}\n- orders_api(order_id): status of an order. args {\"order_id\": \"<id>\"}\n\n[user] What is the combined population of Paris and Rome?\n[assistant] {\"action\":\"tool\",\"tool\":\"lookup\",\"args\":{\"city\":\"Paris\"}}\n[user] Tool result: Paris population: 2102650\n[assistant] {\"action\":\"tool\",\"tool\":\"lookup\",\"args\":{\"city\":\"Rome\"}}\n[user] Tool result: Rome population: 2748109",
+    "response": "{\"action\":\"final\",\"answer\":\"The combined population of Paris and Rome is 2102650 + 2748109 = 4850759.\"}",
+    "latency_ms": 1324,
+    "tokens": 253,
+    "context_window": 32768
+   }
+  ],
+  "final_answer": "The combined population of Paris and Rome is 2102650 + 2748109 = 4850759.",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "recorded": "2026-10-17"
+ },
+ {
+  "id": "percentage",
+  "task": "What is 17% of 2340, rounded to the nearest integer?",
+  "name": "qwen2.5-1.5b-agent: percentage",
+  "steps": [
+   {
+    "type": "DECISION",
+    "description": "Goal: What is 17% of 2340, rounded to the nearest integer?"
+   },
+   {
+    "type": "LLM_CALL",
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "prompt": "[system] You are an assistant that can use tools. Reply with ONE JSON object and nothing else.\nTo call a tool: {\"action\":\"tool\",\"tool\":\"<name>\",\"args\":{...}}\nTo finish: {\"action\":\"final\",\"answer\":\"<answer>\"}\nTools:\n- lookup(city): population of a city. args {\"city\": \"<name>\"}\n- calc(expression): evaluate arithmetic. args {\"expression\": \"<expr>\"}\n- orders_api(order_id): status of an order. args {\"order_id\": \"<id>\"}\n\n[user] What is 17% of 2340, rounded to the nearest integer?",
+    "response": "{\"action\":\"tool\",\"tool\":\"calc\",\"args\":{\"expression\":\"17/100*2340\"}}",
+    "latency_ms": 688,
+    "tokens": 165,
+    "context_window": 32768
+   },
+   {
+    "type": "TOOL_CALL",
+    "tool_name": "calc",
+    "args": {
+     "expression": "17/100*2340"
+    },
+    "result": "397.8",
+    "latency_ms": 0
+   },
+   {
+    "type": "LLM_CALL",
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "prompt": "[system] You are an assistant that can use tools. Reply with ONE JSON object and nothing else.\nTo call a tool: {\"action\":\"tool\",\"tool\":\"<name>\",\"args\":{...}}\nTo finish: {\"action\":\"final\",\"answer\":\"<answer>\"}\nTools:\n- lookup(city): population of a city. args {\"city\": \"<name>\"}\n- calc(expression): evaluate arithmetic. args {\"expression\": \"<expr>\"}\n- orders_api(order_id): status of an order. args {\"order_id\": \"<id>\"}\n\n[user] What is 17% of 2340, rounded to the nearest integer?\n[assistant] {\"action\":\"tool\",\"tool\":\"calc\",\"args\":{\"expression\":\"17/100*2340\"}}\n[user] Tool result: 397.8",
+    "response": "{\"action\":\"final\",\"answer\":\"398\"}",
+    "latency_ms": 349,
+    "tokens": 195,
+    "context_window": 32768
+   }
+  ],
+  "final_answer": "398",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "recorded": "2026-10-17"
+ },
+ {
+  "id": "flaky-api",
+  "task": "Get the status of order 8841 using the orders API.",
+  "name": "qwen2.5-1.5b-agent: flaky-api",
+  "steps": [
+   {
+    "type": "DECISION",
+    "description": "Goal: Get the status of order 8841 using the orders API."
+   },
+   {
+    "type": "LLM_CALL",
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "prompt": "[system] You are an assistant that can use tools. Reply with ONE JSON object and nothing else.\nTo call a tool: {\"action\":\"tool\",\"tool\":\"<name>\",\"args\":{...}}\nTo finish: {\"action\":\"final\",\"answer\":\"<answer>\"}\nTools:\n- lookup(city): population of a city. args {\"city\": \"<name>\"}\n- calc(expression): evaluate arithmetic. args {\"expression\": \"<expr>\"}\n- orders_api(order_id): status of an order. args {\"order_id\": \"<id>\"}\n\n[user] Get the status of order 8841 using the orders API.",
+    "response": "{\"action\":\"tool\",\"tool\":\"orders_api\",\"args\":{\"order_id\":\"8841\"}}",
+    "latency_ms": 555,
+    "tokens": 156,
+    "context_window": 32768
+   },
+   {
+    "type": "ERROR",
+    "error": "TimeoutError: orders API timed out"
+   },
+   {
+    "type": "LLM_CALL",
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "prompt": "[system] You are an assistant that can use tools. Reply with ONE JSON object and nothing else.\nTo call a tool: {\"action\":\"tool\",\"tool\":\"<name>\",\"args\":{...}}\nTo finish: {\"action\":\"final\",\"answer\":\"<answer>\"}\nTools:\n- lookup(city): population of a city. args {\"city\": \"<name>\"}\n- calc(expression): evaluate arithmetic. args {\"expression\": \"<expr>\"}\n- orders_api(order_id): status of an order. args {\"order_id\": \"<id>\"}\n\n[user] Get the status of order 8841 using the orders API.\n[assistant] {\"action\":\"tool\",\"tool\":\"orders_api\",\"args\":{\"order_id\":\"8841\"}}\n[user] Tool error: TimeoutError: orders API timed out",
+    "response": "{\"action\":\"final\",\"answer\":\"The status of order 8841 could not be retrieved due to a timeout error.\"}",
+    "latency_ms": 724,
+    "tokens": 203,
+    "context_window": 32768
+   }
+  ],
+  "final_answer": "The status of order 8841 could not be retrieved due to a timeout error.",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "recorded": "2026-10-17"
+ },
+ {
+  "id": "unknown-city",
+  "task": "What is the population of Atlantis?",
+  "name": "qwen2.5-1.5b-agent: unknown-city",
+  "steps": [
+   {
+    "type": "DECISION",
+    "description": "Goal: What is the population of Atlantis?"
+   },
+   {
+    "type": "LLM_CALL",
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "prompt": "[system] You are an assistant that can use tools. Reply with ONE JSON object and nothing else.\nTo call a tool: {\"action\":\"tool\",\"tool\":\"<name>\",\"args\":{...}}\nTo finish: {\"action\":\"final\",\"answer\":\"<answer>\"}\nTools:\n- lookup(city): population of a city. args {\"city\": \"<name>\"}\n- calc(expression): evaluate arithmetic. args {\"expression\": \"<expr>\"}\n- orders_api(order_id): status of an order. args {\"order_id\": \"<id>\"}\n\n[user] What is the population of Atlantis?",
+    "response": "{\"action\":\"tool\",\"tool\":\"lookup\",\"args\":{\"city\": \"Atlantis\"}}",
+    "latency_ms": 796,
+    "tokens": 145,
+    "context_window": 32768
+   },
+   {
+    "type": "TOOL_CALL",
+    "tool_name": "lookup",
+    "args": {
+     "city": "Atlantis"
+    },
+    "result": "No data for 'Atlantis'.",
+    "latency_ms": 0
+   },
+   {
+    "type": "LLM_CALL",
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "prompt": "[system] You are an assistant that can use tools. Reply with ONE JSON object and nothing else.\nTo call a tool: {\"action\":\"tool\",\"tool\":\"<name>\",\"args\":{...}}\nTo finish: {\"action\":\"final\",\"answer\":\"<answer>\"}\nTools:\n- lookup(city): population of a city. args {\"city\": \"<name>\"}\n- calc(expression): evaluate arithmetic. args {\"expression\": \"<expr>\"}\n- orders_api(order_id): status of an order. args {\"order_id\": \"<id>\"}\n\n[user] What is the population of Atlantis?\n[assistant] {\"action\":\"tool\",\"tool\":\"lookup\",\"args\":{\"city\": \"Atlantis\"}}\n[user] Tool result: No data for 'Atlantis'.",
+    "response": "{\"action\":\"final\",\"answer\":\"The population of Atlantis is not available in the data provided.\"}",
+    "latency_ms": 557,
+    "tokens": 185,
+    "context_window": 32768
+   }
+  ],
+  "final_answer": "The population of Atlantis is not available in the data provided.",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "recorded": "2026-10-17"
+ },
+ {
+  "id": "two-step",
+  "task": "Which city has the larger population, London or Tokyo, and by how much?",
+  "name": "qwen2.5-1.5b-agent: two-step",
+  "steps": [
+   {
+    "type": "DECISION",
+    "description": "Goal: Which city has the larger population, London or Tokyo, and by how much?"
+   },
+   {
+    "type": "LLM_CALL",
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "prompt": "[system] You are an assistant that can use tools. Reply with ONE JSON object and nothing else.\nTo call a tool: {\"action\":\"tool\",\"tool\":\"<name>\",\"args\":{...}}\nTo finish: {\"action\":\"final\",\"answer\":\"<answer>\"}\nTools:\n- lookup(city): population of a city. args {\"city\": \"<name>\"}\n- calc(expression): evaluate arithmetic. args {\"expression\": \"<expr>\"}\n- orders_api(order_id): status of an order. args {\"order_id\": \"<id>\"}\n\n[user] Which city has the larger population, London or Tokyo, and by how much?",
+    "response": "{\"action\":\"tool\",\"tool\":\"lookup\",\"args\":{\"city\":\"London\"}}",
+    "latency_ms": 473,
+    "tokens": 152,
+    "context_window": 32768
+   },
+   {
+    "type": "TOOL_CALL",
+    "tool_name": "lookup",
+    "args": {
+     "city": "London"
+    },
+    "result": "London population: 8799800",
+    "latency_ms": 0
+   },
+   {
+    "type": "LLM_CALL",
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "prompt": "[system] You are an assistant that can use tools. Reply with ONE JSON object and nothing else.\nTo call a tool: {\"action\":\"tool\",\"tool\":\"<name>\",\"args\":{...}}\nTo finish: {\"action\":\"final\",\"answer\":\"<answer>\"}\nTools:\n- lookup(city): population of a city. args {\"city\": \"<name>\"}\n- calc(expression): evaluate arithmetic. args {\"expression\": \"<expr>\"}\n- orders_api(order_id): status of an order. args {\"order_id\": \"<id>\"}\n\n[user] Which city has the larger population, London or Tokyo, and by how much?\n[assistant] {\"action\":\"tool\",\"tool\":\"lookup\",\"args\":{\"city\":\"London\"}}\n[user] Tool result: London population: 8799800",
+    "response": "{\"action\":\"tool\",\"tool\":\"lookup\",\"args\":{\"city\":\"Tokyo\"}}",
+    "latency_ms": 485,
+    "tokens": 192,
+    "context_window": 32768
+   },
+   {
+    "type": "TOOL_CALL",
+    "tool_name": "lookup",
+    "args": {
+     "city": "Tokyo"
+    },
+    "result": "Tokyo population: 13960000",
+    "latency_ms": 0
+   },
+   {
+    "type": "LLM_CALL",
+    "model": "Qwen/Qwen2.5-1.5B-Instruct",
+    "prompt": "[system] You are an assistant that can use tools. Reply with ONE JSON object and nothing else.\nTo call a tool: {\"action\":\"tool\",\"tool\":\"<name>\",\"args\":{...}}\nTo finish: {\"action\":\"final\",\"answer\":\"<answer>\"}\nTools:\n- lookup(city): population of a city. args {\"city\": \"<name>\"}\n- calc(expression): evaluate arithmetic. args {\"expression\": \"<expr>\"}\n- orders_api(order_id): status of an order. args {\"order_id\": \"<id>\"}\n\n[user] Which city has the larger population, London or Tokyo, and by how much?\n[assistant] {\"action\":\"tool\",\"tool\":\"lookup\",\"args\":{\"city\":\"London\"}}\n[user] Tool result: London population: 8799800\n[assistant] {\"action\":\"tool\",\"tool\":\"lookup\",\"args\":{\"city\":\"Tokyo\"}}\n[user] Tool result: Tokyo population: 13960000",
+    "response": "{\"action\":\"final\",\"answer\":\"Tokyo has a larger population than London by 5160200 people.\"}",
+    "latency_ms": 768,
+    "tokens": 244,
+    "context_window": 32768
+   }
+  ],
+  "final_answer": "Tokyo has a larger population than London by 5160200 people.",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "recorded": "2026-10-17"
+ }
+]
