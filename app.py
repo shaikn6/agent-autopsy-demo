@@ -311,9 +311,7 @@ _INTRO = """
 </div>
 """
 
-with gr.Blocks(
-    theme=gr.themes.Soft(primary_hue="blue"), css=_CSS, title="Agent Autopsy"
-) as demo:
+with gr.Blocks(title="Agent Autopsy") as demo:
     gr.HTML(_INTRO)
 
     with gr.Row():
@@ -328,7 +326,7 @@ with gr.Blocks(
                 value=json.dumps(next(iter(EXAMPLES.values())), indent=2),
                 lines=18,
                 max_lines=28,
-                show_copy_button=True,
+                buttons=["copy"],
             )
             analyze_btn = gr.Button("🔍 Run Autopsy", variant="primary", size="lg")
             gr.Markdown(
@@ -379,4 +377,4 @@ with gr.Blocks(
     )
 
 if __name__ == "__main__":
-    demo.launch()
+    demo.launch(theme=gr.themes.Soft(primary_hue="blue"), css=_CSS)
