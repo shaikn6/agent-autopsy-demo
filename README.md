@@ -1,5 +1,7 @@
 # 🔬 Agent Autopsy
 
+[![CI](https://github.com/shaikn6/agent-autopsy-demo/actions/workflows/ci.yml/badge.svg)](https://github.com/shaikn6/agent-autopsy-demo/actions/workflows/ci.yml)
+
 **Explains why an LLM agent run failed: loops, error cascades, unrecovered errors, goal drift, redundant tool calls, cost runaway. Deterministic detectors are the source of truth; an optional LLM layer explains them in plain language. Correct on all 5 recorded real-agent runs (see Limits).**
 
 Interactive demo of **agent-autopsy** —

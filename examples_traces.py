@@ -7,6 +7,9 @@ shown in the UI come from genuine agent-autopsy logic — nothing is faked.
 
 from __future__ import annotations
 
+import json as _json
+from pathlib import Path as _Path
+
 # 1) An agent stuck repeating the same reasoning, then drowning in errors.
 LOOP_AND_CASCADE = {
     "name": "flight-booking-agent",
@@ -216,8 +219,6 @@ HEALTHY = {
     ],
 }
 
-import json as _json
-from pathlib import Path as _Path
 
 # Recorded from a real run of a small tool-using agent (Qwen2.5-1.5B-Instruct, three tools, one deliberately flaky),
 # not written by hand. See real_traces.json for the task, final answer and recording date of each.
